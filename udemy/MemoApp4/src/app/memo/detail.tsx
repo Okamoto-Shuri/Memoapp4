@@ -1,14 +1,16 @@
 import { View, Text, ScrollView, StyleSheet } from 'react-native'
-import { Feather } from '@expo/vector-icons'
+import { router } from 'expo-router'
 
-import Header from '../../components/Header'
 import CircleButton from '../../components/CircleButton'
+import Icon from  '../../components/Icon'
+
+const handlePress = (): void => {
+    router.push('/memo/edit')
+}
 
 const Detail = (): JSX.Element => {
     return(
         <View style={styles.container}>
-
-            <Header />
 
             <View style={styles.memoHeader}>
                 <Text style={styles.memoTitle}>買い物リスト</Text>
@@ -23,8 +25,8 @@ const Detail = (): JSX.Element => {
                 </Text>
             </ScrollView>
 
-            <CircleButton xstyle={{ top: 160, bottom: 'auto' }}>
-                <Feather name='plus' size={40}/>
+            <CircleButton onPress={handlePress} xstyle={{ top: 60, bottom: 'auto' }}>
+                <Icon name='pencil' size={40} color='#ffffff' />
             </CircleButton>
 
         </View>

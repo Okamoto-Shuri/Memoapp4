@@ -1,5 +1,5 @@
 import { View, TextInput, StyleSheet, KeyboardAvoidingView } from 'react-native'
-import { router } from 'expo-router'
+import { router, useLocalSearchParams } from 'expo-router'
 
 import CircleButton from '../../components/CircleButton'
 import Icon from '../../components/Icon'
@@ -9,6 +9,8 @@ const handlePress = (): void => {
 }
 
 const Edit = (): JSX.Element => {
+    const id = String(useLocalSearchParams().id)
+    console.log('edit', id)
     return (
         <KeyboardAvoidingView behavior='height' style={styles.container}>
 

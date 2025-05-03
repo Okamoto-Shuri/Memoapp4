@@ -1,4 +1,4 @@
-/*
+
 import { View, StyleSheet, FlatList } from 'react-native'
 import { router, useNavigation } from 'expo-router'
 import { useEffect, useState } from 'react'
@@ -27,7 +27,7 @@ const List = (): JSX.Element => {
     }, [])
     useEffect(() => {
         if( auth.currentUser === null) { return }
-        const ref = collection(db, `user/${auth.currentUser.uid}/memos`)
+        const ref = collection(db, `users/${auth.currentUser.uid}/memos`)
         const q = query(ref, orderBy('updatedAt', 'desc'))
         const unsubscribe = onSnapshot(q, (snapshot) => {
             const remoteMemos: Memo[] = []
@@ -50,6 +50,7 @@ const List = (): JSX.Element => {
             <FlatList 
                 data={memos}
                 renderItem={({ item }) => < MemoListItem memo={item} />}
+                keyExtractor={(item) => item.id}
             />
 
             <CircleButton onPress={handlePress}>
@@ -68,8 +69,8 @@ const styles = StyleSheet.create({
 })
 
 export default List
-*/
 
+/*
 import { View, StyleSheet, FlatList, Text } from 'react-native'
 import { router, useNavigation } from 'expo-router'
 import { useEffect, useState } from 'react'
@@ -202,3 +203,4 @@ const styles = StyleSheet.create({
         padding: 16
     }
 })
+*/
